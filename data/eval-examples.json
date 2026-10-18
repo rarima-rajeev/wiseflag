@@ -1,0 +1,42 @@
+{
+ "source": "Verbatim from data/eval-raw.json (model claims and judge reasons), selected for clarity.",
+ "judge": "Claude Sonnet 5.5",
+ "examples": [
+  {
+   "model": "Llama 3.3 70B",
+   "label": "Says the vaccine caused it",
+   "category": "overclaimed causation",
+   "signal": "Disease recurrence \u00b7 Pfizer-BioNTech",
+   "claim": "These symptoms suggest a range of reactions to the vaccine, from localized reactions like pain at the injection site to more systemic symptoms like fatigue and fever.",
+   "cited_report": "Report #923404, #927800, #942809, #942857",
+   "reason": "Calling the events 'reactions to the vaccine' implies a causal relationship. The reports only describe temporally associated events. Report #927800 attributes fatigue partly to lupus, and Report #942857 has the patient asking whether the event was a coincidence."
+  },
+  {
+   "model": "Nemotron 3 Super",
+   "label": "Wrong outcome",
+   "category": "wrong outcome",
+   "signal": "Pulmonary thrombosis \u00b7 Janssen",
+   "claim": "All four reports described hospital admission. [#1202184, #1204211, #1209534, #1213298]",
+   "cited_report": "Report #1209534",
+   "reason": "Report #1209534 only says the patient 'went to the hospital on 4/11' and was diagnosed with DVT and small lung clots. Admission is not stated. The other three reports do state admission."
+  },
+  {
+   "model": "Llama 3.3 70B",
+   "label": "Invented timing",
+   "category": "invented fact",
+   "signal": "Myocarditis \u00b7 Pfizer-BioNTech",
+   "claim": "[Report #935452] experiencing symptoms starting the evening of vaccination",
+   "cited_report": "Report #935452",
+   "reason": "The report says symptoms began 1/6/21 at 8pm but gives no vaccination date or time. The summary invented the link to the evening of vaccination. It also contradicts the summary's own statement that the vaccination date is not reported for this case."
+  },
+  {
+   "model": "Gemini 3.8 Flash",
+   "label": "Invented detail",
+   "category": "invented fact",
+   "signal": "Vaccination complication \u00b7 Moderna",
+   "claim": "Another patient presented to the emergency room for severe chest pain, severe headache, and vomiting, receiving IV fluids, antiemetics, headache medication, and Decadron",
+   "cited_report": "Report #921796",
+   "reason": "The report says only 'Gave fluids for dehydration'. It never says the fluids were given intravenously, so 'IV' is an unsupported detail. The other treatments (nausea medicine, headache medicine, Decadron) are supported."
+  }
+ ]
+}

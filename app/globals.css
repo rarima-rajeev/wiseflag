@@ -1,0 +1,37 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #F8FAFC;
+  --foreground: #0F172A;
+}
+
+body {
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+/* Illustration animations */
+@keyframes wf-float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-4px); } }
+@keyframes wf-scan { 0%, 100% { transform: translate(0, 0); } 50% { transform: translate(52px, -10px); } }
+@keyframes wf-grow { from { transform: scaleY(0.2); } to { transform: scaleY(1); } }
+@keyframes wf-grow-x { from { transform: scaleX(0.1); } to { transform: scaleX(1); } }
+@keyframes wf-wave { 0%, 100% { transform: rotate(0deg); } 50% { transform: rotate(-6deg); } }
+@keyframes wf-dash { to { stroke-dashoffset: -18; } }
+@keyframes wf-sparkle { 0%, 100% { transform: scale(1) rotate(0deg); } 50% { transform: scale(1.2) rotate(20deg); } }
+@keyframes wf-pop { from { opacity: 0; transform: scale(0.4); } to { opacity: 1; transform: scale(1); } }
+@keyframes wf-fade-up { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+.wf-float { animation: wf-float 4s ease-in-out infinite; }
+.wf-scan { animation: wf-scan 5s ease-in-out infinite; }
+.wf-grow { animation: wf-grow 1.2s cubic-bezier(.2,.8,.2,1) both; }
+.wf-wave { animation: wf-wave 2.4s ease-in-out infinite; }
+.wf-dash { animation: wf-dash 1s linear infinite; }
+.wf-sparkle { animation: wf-sparkle 2.4s ease-in-out infinite; }
+.wf-pop { animation: wf-pop 0.4s cubic-bezier(.2,.8,.2,1) both; }
+.wf-fade-up { animation: wf-fade-up 0.3s ease-out both; }
+
+@media (prefers-reduced-motion: reduce) {
+  .wf-float, .wf-scan, .wf-grow, .wf-wave, .wf-dash, .wf-sparkle, .wf-pop, .wf-fade-up { animation: none; }
+}

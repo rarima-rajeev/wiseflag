@@ -1,0 +1,37 @@
+{
+ "source": "Narratives copied verbatim from the Kaggle VAERS file (vaers_jan_nov_2021.csv); signal stats from known-signals.json.",
+ "signal": {
+  "vaccine": "Janssen",
+  "symptom": "Guillain-Barre syndrome",
+  "rank": 52,
+  "prr": 3.791,
+  "reports": 199,
+  "note": "FDA warning revision (July 2021) for Janssen vaccine regarding rare reports of Guillain-Barr\u00e9 syndrome (GBS) within 42 days post-vaccination."
+ },
+ "reports": [
+  {
+   "id": "1133722",
+   "age": "56",
+   "sex": "Male",
+   "text": "Beginning on 3/19 he developed a progressive ascending numbness first in his toes, then progressing to include bilateral legs up to knees and bilateral arms up to mid forearm. He also had mild leg weakness bilaterally. He has absent reflexes. His lumbar puncture showed albuminocytologic dissociation. He was diagnosed with Guillan-Barre syndrome and is being treated with IVIG."
+  },
+  {
+   "id": "1172339",
+   "age": "59",
+   "sex": "Male",
+   "text": "A week after the patient had the vaccine he developed weakness with numbness in the lower extremities. Patient continued to get worse and was admitted on 04/03 with concerns for Guillain-Barr\u00e9 syndrome ( GBS). Patient is currently getting treatment for GBS."
+  },
+  {
+   "id": "1198191",
+   "age": "72",
+   "sex": "Male",
+   "text": "Patient developed progressive weakness and was diagnosed with Guillain-Barre Syndrome based on physical exam findings (ascending muscular weakness), lumbar puncture, and MRI findings. Disease course complicated by acute hypoxic respiratory failure which required endotracheal intubation and mechanical ventilation. He was treated with intravenous immunoglobulin x4 days."
+  },
+  {
+   "id": "1214117",
+   "age": "44",
+   "sex": "Male",
+   "text": "Patient developed mild case of Guillain Barre Syndrome 34 hours after injection of the Johnson and Johnson vaccine. Patient has severe extremity pains. The patient has a personal history of being diagnosed with Guillain-Barre after a yellow fever vaccination."
+  }
+ ]
+}

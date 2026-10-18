@@ -1,0 +1,65 @@
+{
+ "source": "Snapshot of signalscope/data/known_signals_check.json",
+ "checks": [
+  {
+   "vaccine": "Pfizer-BioNTech",
+   "symptom": "Myocarditis",
+   "flagged": true,
+   "rank": 48,
+   "prr": 2.351,
+   "reports": 1276,
+   "note": "CDC/FDA ACIP review (June 2021) identified elevated risk of myocarditis and pericarditis, predominantly in adolescent and young adult males within 7 days of dose 2.",
+   "matchedTerm": "Myocarditis"
+  },
+  {
+   "vaccine": "Moderna",
+   "symptom": "Myocarditis",
+   "flagged": false,
+   "rank": null,
+   "prr": null,
+   "reports": null,
+   "note": "CDC/FDA safety monitoring and FDA EUA revision (June 2021) noting increased risk of myocarditis, particularly in young males following dose 2.",
+   "matchedTerm": null
+  },
+  {
+   "vaccine": "Pfizer-BioNTech",
+   "symptom": "Pericarditis",
+   "flagged": false,
+   "rank": null,
+   "prr": null,
+   "reports": null,
+   "note": "CDC/FDA safety updates (2021) observing cases of pericarditis following mRNA COVID-19 vaccination.",
+   "matchedTerm": null
+  },
+  {
+   "vaccine": "Moderna",
+   "symptom": "Pericarditis",
+   "flagged": false,
+   "rank": null,
+   "prr": null,
+   "reports": null,
+   "note": "CDC/FDA warning updates (2021) monitoring post-vaccination pericarditis cases alongside myocarditis.",
+   "matchedTerm": null
+  },
+  {
+   "vaccine": "Janssen",
+   "symptom": "Thrombosis with thrombocytopenia syndrome",
+   "flagged": true,
+   "rank": 27,
+   "prr": 3.302,
+   "reports": 864,
+   "note": "FDA/CDC joint statement (April 2021) recommending a pause and updating Janssen EUA fact sheet regarding rare thrombosis with thrombocytopenia (TTS).",
+   "matchedTerm": "Thrombosis"
+  },
+  {
+   "vaccine": "Janssen",
+   "symptom": "Guillain-Barre syndrome",
+   "flagged": true,
+   "rank": 52,
+   "prr": 3.791,
+   "reports": 199,
+   "note": "FDA warning revision (July 2021) for Janssen vaccine regarding rare reports of Guillain-Barr\u00e9 syndrome (GBS) within 42 days post-vaccination.",
+   "matchedTerm": "Guillain-Barre syndrome"
+  }
+ ]
+}

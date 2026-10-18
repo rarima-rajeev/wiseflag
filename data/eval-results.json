@@ -1,0 +1,319 @@
+{
+ "mode": "live_openrouter",
+ "runAt": "2026-10-14T17:56:41.701Z",
+ "scoredAt": "2026-10-18T08:39:30.458Z",
+ "judge": "anthropic/claude-sonnet-5.5",
+ "promptVersion": "signalscope/prompts/v1",
+ "goldenVerified": 20,
+ "goldenTotal": 20,
+ "signalsEvaluated": 150,
+ "models": [
+  {
+   "model": "google/gemini-3.8-flash",
+   "extraction": {
+    "reportsRun": 20,
+    "parsedOk": 20,
+    "verifiedReportsScored": 20,
+    "fieldsChecked": 100,
+    "fieldsCorrect": 79,
+    "accuracyPct": 79
+   },
+   "summaries": {
+    "signalsRun": 150,
+    "judged": 150,
+    "passed": 73,
+    "totalClaims": 2588,
+    "unsupportedClaims": 124,
+    "unsupportedRatePct": 4.8,
+    "causalLanguageFlags": 1,
+    "categories": {
+     "invented fact": 105,
+     "hallucinated citation": 7,
+     "missed field": 4,
+     "wrong outcome": 7,
+     "overclaimed causation": 1
+    },
+    "summariesWithWrongOutcome": 6,
+    "summariesWithCausation": 1
+   },
+   "avgLatencyMs": 6731,
+   "avgCostPerSummaryUsd": 0.01162626,
+   "totalCostUsd": 1.8117345000000002,
+   "failedCalls": 0
+  },
+  {
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "extraction": {
+    "reportsRun": 20,
+    "parsedOk": 20,
+    "verifiedReportsScored": 20,
+    "fieldsChecked": 100,
+    "fieldsCorrect": 76,
+    "accuracyPct": 76
+   },
+   "summaries": {
+    "signalsRun": 150,
+    "judged": 150,
+    "passed": 26,
+    "totalClaims": 2631,
+    "unsupportedClaims": 340,
+    "unsupportedRatePct": 12.9,
+    "causalLanguageFlags": 11,
+    "categories": {
+     "invented fact": 180,
+     "overclaimed causation": 11,
+     "wrong outcome": 77,
+     "missed field": 70,
+     "hallucinated citation": 2
+    },
+    "summariesWithWrongOutcome": 59,
+    "summariesWithCausation": 11
+   },
+   "avgLatencyMs": 1711,
+   "avgCostPerSummaryUsd": 0.0004981091733333334,
+   "totalCostUsd": 0.07752350100000001,
+   "failedCalls": 0
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "extraction": {
+    "reportsRun": 20,
+    "parsedOk": 20,
+    "verifiedReportsScored": 20,
+    "fieldsChecked": 100,
+    "fieldsCorrect": 80,
+    "accuracyPct": 80
+   },
+   "summaries": {
+    "signalsRun": 150,
+    "judged": 150,
+    "passed": 27,
+    "totalClaims": 2549,
+    "unsupportedClaims": 337,
+    "unsupportedRatePct": 13.2,
+    "causalLanguageFlags": 0,
+    "categories": {
+     "invented fact": 187,
+     "missed field": 70,
+     "wrong outcome": 72,
+     "hallucinated citation": 8
+    },
+    "summariesWithWrongOutcome": 60,
+    "summariesWithCausation": 0
+   },
+   "avgLatencyMs": 384,
+   "avgCostPerSummaryUsd": 0,
+   "totalCostUsd": 0,
+   "failedCalls": 0
+  }
+ ],
+ "failures": [
+  {
+   "model": "google/gemini-3.8-flash",
+   "signal_id": "MODERNA-injection_site_erythema",
+   "claim": "Across the sampled reports, individuals described localized cutaneous and inflammatory reactions at the injection site following vaccination with the Moderna COVID-19 vaccine",
+   "cited_report": "Report #916622, #916627, #916630, #916657",
+   "category": "invented fact",
+   "reason": "Only Report #916657 names the vaccine (Moderna). Reports #916622, #916627 and #916630 do not state the vaccine product or manufacturer. Applying Moderna to the whole sample fills in missing data instead of saying 'not reported'."
+  },
+  {
+   "model": "google/gemini-3.8-flash",
+   "signal_id": "MODERNA-injection_site_erythema",
+   "claim": "vaginal bleeding while on birth control; disruption of a three-year absence of menstrual bleeding",
+   "cited_report": "Report #916622",
+   "category": "invented fact",
+   "reason": "The narrative says only 'I bled all day on December 31st 2020'. It does not say the bleeding was vaginal. It also does not say the bleeding was a disruption of the absent menstrual cycle. The reporter is uncertain whether it relates to the vaccine. The summary states a specific bleeding type and interpretation that the source does not give."
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "signal_id": "MODERNA-injection_site_erythema",
+   "claim": "Report #916622: onset December 31 2020 at 8:00 am (same day as vaccination)",
+   "cited_report": "Report #916622",
+   "category": "invented fact",
+   "reason": "Report #916622 never gives the vaccination date or time. The onset time is supported, but 'same day as vaccination' is an inference with no source support. The vaccination date should have been stated as not reported. The later statement that onset timing varies from 'same day' to ~10 days depends on this unsupported claim."
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "signal_id": "MODERNA-injection_site_erythema",
+   "claim": "Sex: Not reported in any of the four case reports",
+   "cited_report": "Report #916622",
+   "category": "missed field",
+   "reason": "Report #916622 mentions being on birth control for 3 years and not having a 'female menstrual cycle', which indicates a female patient. Stating that sex is not reported in any report misrepresents the available information."
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "signal_id": "MODERNA-injection_site_erythema",
+   "claim": "The reports rely on patient self-description without clinician verification, introducing possible recall or reporting bias",
+   "cited_report": "Report #916657",
+   "category": "invented fact",
+   "reason": "The source reports do not say who authored them or whether a clinician was involved. Report #916657 uses clinical terms (axillary lymph node, erythema, induration), which could be clinician-authored. The summary guesses the reporter type instead of saying it is not reported."
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "signal_id": "MODERNA-injection_site_erythema",
+   "claim": "The disproportionality metrics (PRR = 6.407, ROR = 6.846, Chi-Square = 15979.336, Total Cases = 22162) indicate a statistical signal for injection site erythema with Moderna vaccine",
+   "cited_report": "None (uncited)",
+   "category": "invented fact",
+   "reason": "None of the source case reports contain these statistics or a total case count. The figures are not grounded in the provided input, and the claim carries no citation."
+  },
+  {
+   "model": "google/gemini-3.8-flash",
+   "signal_id": "MODERNA-injection_site_pruritus",
+   "claim": "Accompanying local reactions included swelling or induration [Report #916627, Report #916666, Report #916726, Report #916738]",
+   "cited_report": "Report #916738",
+   "category": "invented fact",
+   "reason": "Report #916738 describes only 'localized inflammation', pruritus, tenderness and increasing erythema. It does not mention swelling or induration, so the citation does not support this detail for that report. The other three reports do describe swelling or induration."
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "signal_id": "MODERNA-injection_site_pruritus",
+   "claim": "Concurrent local signs included redness, swelling, warmth, tenderness, hardness/induration, and a 'coin-size' or 'baseball-size' area of induration (Report #916627)",
+   "cited_report": "Report #916627",
+   "category": "invented fact",
+   "reason": "Report #916627 describes redness/induration, hardness, swelling and tenderness, but never mentions warmth or heat at the injection site. Warmth is reported only in Reports #916666 and #916726."
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "signal_id": "MODERNA-injection_site_pruritus",
+   "claim": "Systemic symptoms were also noted ... arm soreness and muscle aches (Report #916726)",
+   "cited_report": "Report #916726",
+   "category": "invented fact",
+   "reason": "Report #916726 mentions only arm soreness at the injection site, plus itching, swelling, redness and warmth. Muscle aches are not reported, and arm soreness is a local symptom rather than a systemic one."
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "signal_id": "MODERNA-injection_site_pruritus",
+   "claim": "Clinical work-up details are lacking: no objective measurements (e.g., circumference, temperature) ... [Report #916627][Report #916666][Report #916726][Report #916738]",
+   "cited_report": "Report #916666",
+   "category": "invented fact",
+   "reason": "Report #916666 records measured temperatures (Tmax 101.0 and a low-grade fever of 100.6). It also describes evaluation by a PCP and a physician. The blanket claim that no temperature measurements exist is contradicted by the source."
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "signal_id": "MODERNA-injection_site_pruritus",
+   "claim": "Report #916627 lists persistent itching, muscle soreness, and paresthesia without indication of resolution",
+   "cited_report": "Report #916627",
+   "category": "wrong outcome",
+   "reason": "Report #916627 gives no duration or course for any symptom. Calling the itching 'persistent' is an unsupported characterization. The data should be described as lacking outcome or duration information."
+  },
+  {
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "signal_id": "MODERNA-injection_site_swelling",
+   "claim": "[Report #916622] mentions being on birth control, implying the patient is a female of childbearing age",
+   "cited_report": "Report #916622",
+   "category": "invented fact",
+   "reason": "The narrative says the patient is on birth control and has had no menstrual cycle for about 3 years, which implies female sex. It never states or supports 'childbearing age'. Age is not reported, so this is a guess where the summary should say 'not reported'."
+  }
+ ],
+ "examples": [
+  {
+   "model": "google/gemini-3.8-flash",
+   "signal": "Ultrasound Doppler · Janssen",
+   "serious": false,
+   "category": "overclaimed causation",
+   "claim": "Report #1144220 describes an infectious etiology ... leading to acute respiratory failure and PEA",
+   "cited_report": "Report #1144220",
+   "reason": "The source lists bacteremia, respiratory failure requiring intubation, and PEA in sequence but does not say that the infection caused or led to the respiratory failure and PEA. The summary presents a causal chain and an \"infectious etiology\" that the source does not establish."
+  },
+  {
+   "model": "google/gemini-3.8-flash",
+   "signal": "Adverse event · Janssen",
+   "serious": false,
+   "category": "wrong outcome",
+   "claim": "One individual reported that symptoms lessened 12 hours after beginning (following Tylenol use) but were still persisting nearly 24 hours after the injection",
+   "cited_report": "Report #1160274",
+   "reason": "The source says the patient 'Took Tylenol but persisted', meaning the symptoms continued despite Tylenol. It says the symptoms lessened by 10:00am the next day, and it does not link that improvement to Tylenol. The phrase 'following Tylenol use' implies a treatment-response sequence the source does not support."
+  },
+  {
+   "model": "google/gemini-3.8-flash",
+   "signal": "Deep vein thrombosis · Janssen",
+   "serious": true,
+   "category": "invented fact",
+   "claim": "The provided reports describe a spectrum of venous and arterial thrombotic presentations following vaccination",
+   "cited_report": "Report #1104152, #1112768, #1125625, #1141160 (implied, general framing)",
+   "reason": "None of the four narratives mentions a vaccine, vaccination, or any exposure. The phrase \"following vaccination\" adds a temporal and implied causal link that the source text does not contain. The summary should have said that the vaccine or product exposure and onset timing were not reported in the narratives."
+  },
+  {
+   "model": "google/gemini-3.8-flash",
+   "signal": "Thrombosis · Janssen",
+   "serious": true,
+   "category": "hallucinated citation",
+   "claim": "Patient sex was not reported in two cases [Report #1120494, Report #1...",
+   "cited_report": "Report #1 (truncated)",
+   "reason": "The second citation is cut off at 'Report #1', which matches no provided report ID (1120494, 1121937, 1131671, 1146214). The claim therefore cannot be checked against its cited sources. Sex is indeed not stated in #1120494 and #1121937. However, the claim implies sex is reported in the other two cases, and the sources only imply it (menstruation, pregnancy) without stating it."
+  },
+  {
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "signal": "Injection site swelling · Moderna",
+   "serious": false,
+   "category": "overclaimed causation",
+   "claim": "[Report #916666] ... notes improvement over time with medical attention",
+   "cited_report": "Report #916666",
+   "reason": "The report says the injection site was improving by Friday morning. It does not link the improvement to medical attention. The PCP and the work physician only characterized the reaction as a localized or cellulitic reaction, and no medical treatment is described. The patient self-treated with ice and Tylenol. Tying the improvement to medical attention implies an unsupported causal or treatment effect."
+  },
+  {
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "signal": "Deep vein thrombosis · Janssen",
+   "serious": true,
+   "category": "wrong outcome",
+   "claim": "[Report #1125625] ... was 'almost back to normal' by the follow-up appointment.",
+   "cited_report": "Report #1125625",
+   "reason": "The narrative says the patient was released and had a follow-up appointment on 3/22/21. It separately says 'Pt is improving and is almost back to normal.' It does not say this status was observed at the follow-up appointment, so the summary adds a timing detail."
+  },
+  {
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "signal": "Deep vein thrombosis · Janssen",
+   "serious": true,
+   "category": "invented fact",
+   "claim": "The passive reporting nature of VAERS means that the data may be subject to underreporting and biases...",
+   "cited_report": "None",
+   "reason": "None of the source reports mention VAERS, a vaccine, or the reporting system. The statement comes from outside knowledge and is not grounded in the provided reports."
+  },
+  {
+   "model": "meta-llama/llama-3.3-70b-instruct",
+   "signal": "Injection site induration · Moderna",
+   "serious": false,
+   "category": "hallucinated citation",
+   "claim": "The injection site reactions were described as ranging from a \"coin size\" to a \"baseball size\" area of induration and erythema",
+   "cited_report": "Report #916657",
+   "reason": "Only Report #916627 gives size descriptors (\"coin size\" and \"baseball size\"). Report #916657 describes no size of the injection site reaction, so citing it for this claim is not grounded. In #916627, \"baseball size\" also refers to hardness/swelling/tenderness, not erythema."
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "signal": "Myocarditis · Pfizer-BioNTech",
+   "serious": true,
+   "category": "wrong outcome",
+   "claim": "Chest pain ... sometimes exacerbated by deep inspiration or lying on the side",
+   "cited_report": "Report #966243",
+   "reason": "The pain was exacerbated by deep inspiration, but lying on the side 'provided minimal relief'. It did not exacerbate the pain. The summary also cites all four reports for this bullet. Report #937932 does not describe chest pain character at all, and #935452 mentions only intermittent then constant pain."
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "signal": "Thrombosis · Janssen",
+   "serious": true,
+   "category": "invented fact",
+   "claim": "No objective diagnostic confirmation (e.g., imaging, laboratory tests) is mentioned for thrombotic events; reports rely on patient-described symptoms or clinical notes.",
+   "cited_report": "Report #1120494",
+   "reason": "No report mentions 'clinical notes'. Report #1120494 gives a specific diagnosis (pulmonary embolism with acute Cor Pulmonale/hypoxia), which implies clinical evaluation, and it mentions a negative COVID test. The statement mischaracterizes the source content. The citation list is also truncated and malformed ('[Report #1')."
+  },
+  {
+   "model": "nvidia/nemotron-3-super-120b-a12b:free",
+   "signal": "Deep vein thrombosis · Janssen",
+   "serious": true,
+   "category": "hallucinated citation",
+   "claim": "The sampled reports reflect passive surveillance data, which may be subject to under-reporting, variable completeness, and duplicates; this is a general limitation of the VAERS system as reflected in the provided reports.",
+   "cited_report": "General limitation of the VAERS system as reflected in the provided reports",
+   "reason": "This citation is not a provided report. None of the source narratives mention VAERS, passive surveillance, under-reporting, or duplicates, so the claim is external knowledge presented as grounded in the reports."
+  }
+ ],
+ "judgeQuirkFlags": 30,
+ "judgeStats": {
+  "model": "anthropic/claude-sonnet-5.5",
+  "calls": 450,
+  "claimsChecked": 7768,
+  "avgLatencyMs": 1805,
+  "totalCostUsd": 9.255995999999994,
+  "blind": true
+ },
+ "totalRunCostUsd": 11.145254000999994
+}

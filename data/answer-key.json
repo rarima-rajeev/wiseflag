@@ -1,0 +1,172 @@
+{
+ "source": "Snapshot of signalscope/data/golden.json",
+ "total": 20,
+ "random": 10,
+ "hard": 10,
+ "verified": 20,
+ "fieldsConfirmed": 100,
+ "fieldsTotal": 100,
+ "reports": [
+  {
+   "id": "1384787",
+   "vaccine": "Pfizer-BioNTech",
+   "hard": false,
+   "category": null,
+   "trap": "Age omitted from narrative text (\"unspecified age\"); model must say \"not reported\" despite presence of adult symptoms.",
+   "narrative": "Fatigue; Calf muscle pain; Bad headache; This is a spontaneous report from a non-contactable pharmacist reported for a 14-years-old male patient. A 14-years-old male patient received second dose of bnt162b2 (BNT162B2, Pfizer covid vaccine), via an unspecified route of administration on 03Jun2021 (Batch/Lot number was not reported) as single dose for covid-19 immunisation. The patient medical history and concomitant medications were not reported. The patient received first dose of bnt162b2 (BNT162B2, Pfizer covid vaccine), via an unspecified route of administration on an unknown date (Batch/Lot number was not reported) as single dose for covid-19 immunisation. On 04Jun2021, after second dose\u2026"
+  },
+  {
+   "id": "1306812",
+   "vaccine": "Pfizer-BioNTech",
+   "hard": false,
+   "category": null,
+   "trap": "Syncopal episode with pre-existing anxiety history; risk of conflating psychogenic response with drug reaction.",
+   "narrative": "Patient had a syncopal episode after receiving vaccine. Apparently there is a history of anxiety over needles per family on scene."
+  },
+  {
+   "id": "1007377",
+   "vaccine": "Pfizer-BioNTech",
+   "hard": false,
+   "category": null,
+   "trap": "Exacerbation of pre-existing eczema; model must distinguish flare-up from novel allergic manifestation.",
+   "narrative": "I had an area on my right wrist that was almost healed from eczema that started after the first vaccine as I previously reported. That area became inflamed and itchy. My lower right arm became covered with eczema as a couple of days progressed. I have since ended up with it on the left side of my face."
+  },
+  {
+   "id": "1236940",
+   "vaccine": "Pfizer-BioNTech",
+   "hard": false,
+   "category": null,
+   "trap": "Somatic presentation (worsening anxiety with chest tightness, trouble swallowing); risk of misclassifying as acute anaphylaxis.",
+   "narrative": "Worsening anxiety with chest tightness and feeling of trouble swallowing"
+  },
+  {
+   "id": "1112207",
+   "vaccine": "Moderna",
+   "hard": false,
+   "category": null,
+   "trap": "Rapid onset in clinic waiting area (within 25 mins); model must extract acute timing without guessing outcome.",
+   "narrative": "First dose Moderna given 3/18/2021 at 0925. Patient was in waiting area and complained of feeling very fatigued with nausea and heaviness to arms and legs. Patient taken to the Emergency Department via wheelchair at 0950 for evaluation."
+  },
+  {
+   "id": "922492",
+   "vaccine": "Moderna",
+   "hard": false,
+   "category": null,
+   "trap": "Localized injection site soreness and swelling over several days; model must capture localized reaction without inventing systemic disease.",
+   "narrative": "12/28/20 Patient received Moderna COVID19 vaccine for first injection of 2 shot series. Patient developed right arm sorness later that day. No other symptoms and sorness left within two days. Patient presents today with reddness to right deltoid approx 4-5 cm reddness around where injection was placed. Site is noted to be warmer than surounding tissues. Patient also notes throbing dull ache to site and down arm. Rates pain at 2 -3. Also notes more slower responsiveness of this muscle group when preforming power cleans and working out. No fever noted."
+  },
+  {
+   "id": "1077774",
+   "vaccine": "Moderna",
+   "hard": false,
+   "category": null,
+   "trap": "Delayed onset localized reaction (soreness for 2 days, then red bumps); model must not confuse with acute systemic rash.",
+   "narrative": "The injection site was sore for about 2 days right after injection. Then several red bumps appeared 7 days after the injection on the arm at the injection site. The area is swollen and hard to the touch and warm. The size is about 5 x 7 cm, a little itchy but not sore."
+  },
+  {
+   "id": "1248277",
+   "vaccine": "Janssen",
+   "hard": false,
+   "category": null,
+   "trap": "Onset at day 5 with short stabbing pains in abdomen and chest; model must extract multi-site pain without inventing specific cardiac diagnosis.",
+   "narrative": "Since day 5 post-vaccine, I have been having short, stabbing pains in various areas of the body, but primarily legs. These pains last anywhere from just a second to maybe a full minute before going away and coming back - sometimes within a couple minutes, sometimes longer like 30 minutes."
+  },
+  {
+   "id": "1203016",
+   "vaccine": "Janssen",
+   "hard": false,
+   "category": null,
+   "trap": "Extensive list of constitutional symptoms (body aches, dyspnea, headache, fever); model must extract comprehensive symptom array without truncation.",
+   "narrative": "BODY ACHES; SHORTNESS OF BREATH; LOSS OF APPETITE; SORE ARM; HEADACHE; FEVER; NAUSEA; FEELS VACCINE WAS ADMINISTERED A LITTLE HIGH ON THE SHOULDER; MORE PAINFUL SHOT THAN EXPECTED; This spontaneous report received from a patient concerned a 31 year old female. The patient's height, and weight were not reported. The patient's pre-existing medical conditions included the patient had no known allergies. The patient received covid-19 vaccine ad26.cov2.s (suspension for injection, intra muscular and batch number: 043A21A expiry: UNKNOWN) dose was not reported, administered on 05-APR-2021 11:45 on left arm for prophylactic vaccination. No concomitant medications were reported. On 05-APR-2021, the\u2026"
+  },
+  {
+   "id": "1157503",
+   "vaccine": "Janssen",
+   "hard": false,
+   "category": null,
+   "trap": "Severe neurological complaint (paralyzed from waist down); model must extract acute paresis and flag severe outcome without guessing age.",
+   "narrative": "PARALYZED FROM WAIST TO ALL THE WAY DOWN LEGS; This spontaneous report received from a patient via a company representative concerned a female of unspecified age. The patient's weight, height, and medical history were not reported. The patient received covid-19 vaccine ad26.cov2.s (suspension for injection, route of admin not reported, batch number: Unk) dose was not reported, administered on MAR-2021 for prophylactic vaccination. The batch number was not reported and has been requested. No concomitant medications were reported. On an unspecified date, the subject experienced paralyzed from waist to all the way down legs. The action taken with covid-19 vaccine ad26.cov2.s was not\u2026"
+  },
+  {
+   "id": "1011093",
+   "vaccine": "Moderna",
+   "hard": true,
+   "category": "ER visit, not admitted",
+   "trap": "Patient was taken to ER for observation, given IV fluids/Benadryl, and discharged with normal EKG. High risk of model erroneously coding outcome as \"hospitalized\".",
+   "narrative": "lightheaded ,dizzy feeling of passing out . sweating drop in blood pressure 90 over 40. Was given an IV with fluids plus benadryl and a steriod. was taken to the ER for observation. was given an EKG and it was normal. the outcome was presyncope."
+  },
+  {
+   "id": "1355818",
+   "vaccine": "Moderna",
+   "hard": true,
+   "category": "ER visit, not admitted",
+   "trap": "Patient experienced severe vomiting and received oral Zofran in ER triage without inpatient admission. Risk of false-positive \"hospitalized\" outcome.",
+   "narrative": "Misery. Fever, chills, nausea, vomiting, diaphoresis. A feeling similar to heat exhaustion. I did not start feeling better until receiving oral Zofran in triage at emergency room at approximately 7:00 pm on 04/16/21."
+  },
+  {
+   "id": "1277125",
+   "vaccine": "Pfizer-BioNTech",
+   "hard": true,
+   "category": "Missing details",
+   "trap": "Narrative explicitly states \"unspecified age and gender\" on an \"unspecified date\". Model must output \"not reported\" for age, sex, and onset timing.",
+   "narrative": "back pain is gone; This is a spontaneous report from a contactable consumer (patient). This patient of unspecified age and gender received the first dose of BNT162B2 (PFIZER-BIONTECH COVID-19 VACCINE) at single dose on an unspecified date for COVID-19 immunisation. Medical history included back pain. Concomitant medication was not reported. Patient just got the Pfizer vaccine yesterday and now the back pain was gone. Patient had had back pain for the past year only thing that changed was yesterday taking that shot. Patient asked if this was a temporary symptom or would no longer have back pain. The outcome of event was unknown. No follow-up attempts are needed; information about lot/batch\u2026"
+  },
+  {
+   "id": "1301980",
+   "vaccine": "Janssen",
+   "hard": true,
+   "category": "Missing details",
+   "trap": "Narrative states \"male of unspecified age\" with medical history omitted. Model must extract sex as Male, but age and onset as \"not reported\".",
+   "narrative": "SICK; This spontaneous report received from a patient via social media through a company representative concerned a male of unspecified age. The patient's weight, height, and medical history were not reported. The patient received Covid-19 vaccine ad26.cov2.s (suspension for injection, route of admin not reported, batch number: Unknown expiry: Unknown) dose, start therapy date were not reported for prophylactic vaccination. The batch number was not reported. Per procedure, no follow-up will be requested for this case. No concomitant medications were reported. On an unspecified date, upon vaccination the patient was sick and hospitalized for two days. The action taken with Covid-19 vaccine\u2026"
+  },
+  {
+   "id": "1412929",
+   "vaccine": "Janssen",
+   "hard": true,
+   "category": "Messy timeline",
+   "trap": "Multi-phase timeline: arm pain in week 1, day 8 whole-body twitching, followed by worsening headache when twitching ceased. Model must preserve chronological sequence.",
+   "narrative": "Arm pain the first week. Then on the eighth day, I had twitching (whole body) like I was having a seizure but it wasn't. It only happens when I lay down. Then I had a headache, maybe a little that first week after, but when the twitching the headache got worse. When the twitching was severe it was every couple of minutes. The headache could be associated with other problems. I wasn't sleeping. The headache gets worse at night time. If I lay on the left side where the headache is on it gets way worse. Then my hip hurts if I lay on other side because I had hip replacement. My blood pressure got so high, went up to 212/110. I went by ambulance to ER. At one point, 240 over 110 (the ambulance\u2026"
+  },
+  {
+   "id": "1106768",
+   "vaccine": "Moderna",
+   "hard": true,
+   "category": "Messy timeline",
+   "trap": "Dose 1 caused progressive joint pain at day 5 moving hands -> elbows -> feet/knees; Dose 2 triggered extreme fatigue and burning rib pain. Model must distinguish dose 1 vs dose 2 events.",
+   "narrative": "5 days after original shot I began having joint pain in my hands. This then moved to my elbows. Then to my feet and knees. After the second shot, I began having extreme fatigue, continuing joint pain, which has progressed to a burning pain in my rib cage. I am also having numbness and tingling in my hands and feet. This has caused extreme anxiety and difficulty working. I have gone from exercising very vigorously 6 days a week to light walking with extreme fatigue."
+  },
+  {
+   "id": "1079704",
+   "vaccine": "Pfizer-BioNTech",
+   "hard": true,
+   "category": "Prior conditions",
+   "trap": "Observation timestamp sequence (1324, 1354, 1355, 1400) noting prior history of heat flushing after dose 1. Model must not conflate prior history with acute symptoms.",
+   "narrative": "1324 - Vaccine received 1354 - Observation time ended, but developed \"itching\" to bilateral ears (reported to assessment tent at 1355). History of same plus \"heat flushing\" to face after 1st dose, which autoresolved without any meds within a few hours the first time. 1400 - HR 85, RR 18, BP 153/109, SpO2 100 1405 - Administered 25 mg PO Benadryl per MD verbal orders. 1410 - D/ced home w/ verbal instructions per MD."
+  },
+  {
+   "id": "1347632",
+   "vaccine": "Janssen",
+   "hard": true,
+   "category": "Someone claims a cause",
+   "trap": "Patient emphatically states: \"I'm 100% convinced this is all related to the vaccine on the 9th.\" Model must recognize consumer attribution as unverified claim, not causal fact.",
+   "narrative": "Within a couple hours, I felt very tired. At about 9pm, I went to bed and started experiencing chills, sweating, intense body aches and pains, a headache, nausea and abdominal pain. This lasted thru the night. When I woke up, the chills, sweating and intense body aches and pains were less in severity. I took my temperature and it was 101. The temperature was elevated on and off for the next two days. The other symptoms lessened. The abdominal pain remained. I continued to have a headache for over one week. On the 14th (five days after) I felt like I was finally getting better. However, on the night of the 14th, the fever returned and the abdominal pain worsened. I made an appointment with\u2026"
+  },
+  {
+   "id": "1308906",
+   "vaccine": "Pfizer-BioNTech",
+   "hard": true,
+   "category": "Someone claims a cause",
+   "trap": "Attending physician stated he \"believes it is vaccine related\" for Bell's palsy. Model must identify physician opinion vs clinically proven causation.",
+   "narrative": "I started with normal flu like symptoms for 3 days. Then after that I started having pain that seemed similar to a toothache/ear infection. As time went on it was getting worse and worse. I thought it was an ear infection and that it would go away on its own. On the week of 5/03/2021 it started becoming unbearable. I made an appointment to see the doctor to check out my ear. While at work on 5/10/2021 I started feeling like my blinking was off. I felt like my left side was slow and weak. By bedtime I was struggling to spit. I knew I had a doctor appointment in the morning so I decided to wait it out. By the time I got to my appointment most of the left side of my face was weak and not\u2026"
+  },
+  {
+   "id": "1142593",
+   "vaccine": "Pfizer-BioNTech",
+   "hard": true,
+   "category": "Very short report",
+   "trap": "Sparse 70-character narrative (\"Tinnitus, especially in left ear. Throbbing neck and head behind ears.\"). Age, sex, and onset timing missing; model may hallucinate context.",
+   "narrative": "Tinnitus, especially in left ear. Throbbing neck and head behind ears."
+  }
+ ],
+ "fieldsCorrected": 2
+}
