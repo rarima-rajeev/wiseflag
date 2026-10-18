@@ -3,6 +3,7 @@
 import { useState } from "react";
 import known from "@/data/known-signals.json";
 import flagged from "@/data/flagged-signals.json";
+import { track } from "@/lib/analytics";
 
 type Check = (typeof known.checks)[number];
 
@@ -86,7 +87,10 @@ export default function RealityCheck() {
             key={keyOf(c)}
             c={c}
             guess={guesses[keyOf(c)] ?? null}
-            setGuess={(g) => setGuesses((prev) => ({ ...prev, [keyOf(c)]: g }))}
+            setGuess={(g) => {
+              setGuesses((prev) => ({ ...prev, [keyOf(c)]: g }));
+              track("known_signal_guessed", { signal: keyOf(c), correct: g === c.flagged });
+            }}
           />
         ))}
       </ul>

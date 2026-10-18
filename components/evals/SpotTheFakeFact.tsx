@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { track } from "@/lib/analytics";
 
 // Illustrative example written for this page; not output from a recorded eval run.
 const REPORT =
@@ -48,7 +49,11 @@ export default function SpotTheFakeFact() {
             <li key={c.text}>
               <button
                 type="button"
-                onClick={() => !found && setPicked(i)}
+                onClick={() => {
+                  if (found) return;
+                  setPicked(i);
+                  if (!c.supported) track("fake_fact_found");
+                }}
                 aria-pressed={isPicked}
                 className={`w-full flex items-start gap-3 text-left text-sm px-3 py-2.5 rounded-lg border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 ${style}`}
               >

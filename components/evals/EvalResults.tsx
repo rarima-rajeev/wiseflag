@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Trophy } from "lucide-react";
 import results from "@/data/eval-results.json";
 import { LOGOS } from "@/components/architecture/logos";
+import { track } from "@/lib/analytics";
 
 type ModelResult = (typeof results.models)[number];
 
@@ -434,7 +435,10 @@ export default function EvalResults() {
             <button
               key={m.key}
               type="button"
-              onClick={() => setMetricKey(m.key)}
+              onClick={() => {
+                setMetricKey(m.key);
+                track("eval_metric_selected", { metric: m.key });
+              }}
               aria-pressed={metricKey === m.key}
               className={`px-3 py-1.5 rounded-full text-xs sm:text-sm font-semibold border transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 ${
                 metricKey === m.key

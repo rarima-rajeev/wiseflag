@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import reviewCase from "@/data/review-case.json";
+import { track } from "@/lib/analytics";
 
 // The reports are real VAERS narratives. The summary is an illustrative AI-style draft written for this
 // exercise (with one planted error and one omission), not a recorded model output.
@@ -189,7 +190,10 @@ export default function YouBeTheReviewer() {
 
           <button
             type="button"
-            onClick={() => setSubmitted(true)}
+            onClick={() => {
+              setSubmitted(true);
+              track("reviewer_decision_submitted", { decision, reasons });
+            }}
             disabled={!canSubmit}
             className="mt-4 w-full sm:w-auto px-5 py-2.5 rounded-lg bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 disabled:opacity-40 disabled:cursor-not-allowed focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-600 focus-visible:ring-offset-2"
           >

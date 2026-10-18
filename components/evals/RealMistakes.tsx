@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import data from "@/data/eval-examples.json";
+import { track } from "@/lib/analytics";
 
 export default function RealMistakes() {
   const [index, setIndex] = useState(0);
@@ -58,7 +59,10 @@ export default function RealMistakes() {
         {!revealed ? (
           <button
             type="button"
-            onClick={() => setRevealed(true)}
+            onClick={() => {
+              setRevealed(true);
+              track("real_mistake_revealed", { example: ex.label, model: ex.model });
+            }}
             className="w-full sm:w-auto px-4 py-2 rounded-lg border border-rose-200 bg-rose-50 text-rose-800 text-sm font-semibold hover:bg-rose-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-rose-500"
           >
             Show what the judge found

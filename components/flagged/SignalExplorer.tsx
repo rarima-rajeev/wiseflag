@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import flagged from "@/data/flagged-signals.json";
+import { track } from "@/lib/analytics";
 
 type Signal = (typeof flagged.signals)[number];
 type SortKey = "reports" | "prr";
@@ -216,6 +217,7 @@ export default function SignalExplorer() {
           type="button"
           onClick={() => {
             setShowAll((v) => !v);
+            if (!showAll) track("signal_explorer_show_all", { vaccine });
             setSelectedId(null);
           }}
           aria-expanded={showAll}
