@@ -187,6 +187,7 @@ export const BUILT_WITH = [
   "Next.js",
   "Tailwind CSS",
   "OpenRouter (multiple LLMs)",
+  "Vercel",
 ];
 
 export const GLOSSARY = [
