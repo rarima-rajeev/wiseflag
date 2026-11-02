@@ -1,22 +1,20 @@
-// System architecture: connected building blocks with data flowing through them.
+// System architecture: the product flow, from data to statistics, flags, an AI summary and human review.
 export default function ArchitectureIllustration({ className = "" }: { className?: string }) {
   const nodes = [
     { x: 40, y: 40, c: "#94A3B8", l: "DATA" },
     { x: 130, y: 40, c: "#0891B2", l: "STATS" },
-    { x: 220, y: 40, c: "#4F46E5", l: "AI" },
-    { x: 220, y: 120, c: "#F59E0B", l: "JUDGE" },
+    { x: 220, y: 40, c: "#DC2626", l: "FLAGS" },
+    { x: 220, y: 120, c: "#4F46E5", l: "AI" },
     { x: 130, y: 120, c: "#059669", l: "HUMAN" },
-    { x: 40, y: 120, c: "#7C3AED", l: "SITE" },
   ];
   const links = [
     [0, 1],
     [1, 2],
     [2, 3],
     [3, 4],
-    [4, 5],
   ];
   return (
-    <svg viewBox="0 0 320 200" className={className} role="img" aria-label="Illustration of connected system blocks: data, statistics, AI, judge, human review and site">
+    <svg viewBox="0 0 320 200" className={className} role="img" aria-label="Illustration of the product flow: data, statistics, flagged signals, AI summary and human review">
       <defs>
         <linearGradient id="arch-bg" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stopColor="#EEF2FF" />
@@ -53,8 +51,8 @@ export default function ArchitectureIllustration({ className = "" }: { className
       ))}
       {/* Shield for security */}
       <g className="wf-float">
-        <path d="M290 44 L306 50 V64 Q306 76 290 82 Q274 76 274 64 V50 Z" fill="#0F172A" />
-        <path d="M283 63 l5 5 l9 -10" stroke="#6EE7B7" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+        <path d="M70 121 L86 127 V141 Q86 153 70 159 Q54 153 54 141 V127 Z" fill="#0F172A" />
+        <path d="M63 140 l5 5 l9 -10" stroke="#6EE7B7" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
       </g>
     </svg>
   );

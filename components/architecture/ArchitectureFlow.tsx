@@ -1,16 +1,17 @@
-import { Code2, Sigma, UserCheck, Users, ShieldCheck, ClipboardCheck, FileSpreadsheet, BarChart3 } from "lucide-react";
+import Link from "next/link";
+import { Code2, Sigma, UserCheck, ShieldCheck, FileSpreadsheet, BarChart3 } from "lucide-react";
 import { LOGOS, type Logo } from "@/components/architecture/logos";
 
-type IconSpec = { logo: Logo } | { lucide: typeof Code2; color: string };
+export type IconSpec = { logo: Logo } | { lucide: typeof Code2; color: string };
 
-interface Node {
+export interface FlowNode {
   label: string;
   sub?: string;
   icons: IconSpec[];
-  tone?: "default" | "judge" | "human" | "stats";
+  tone?: "default" | "judge" | "human" | "stats" | "ai";
 }
 
-const L = (slug: keyof typeof LOGOS): IconSpec => ({ logo: LOGOS[slug] });
+export const L = (slug: keyof typeof LOGOS): IconSpec => ({ logo: LOGOS[slug] });
 
 // Very light brand colors (e.g. DuckDB yellow) get a dark tile so they stay visible.
 function isLight(hex: string) {
@@ -19,7 +20,7 @@ function isLight(hex: string) {
   return 0.2126 * r + 0.7152 * g + 0.0722 * b > 200;
 }
 
-function Icon({ spec }: { spec: IconSpec }) {
+export function Icon({ spec }: { spec: IconSpec }) {
   if ("logo" in spec) {
     const dark = isLight(spec.logo.hex);
     return (
@@ -41,14 +42,15 @@ function Icon({ spec }: { spec: IconSpec }) {
   );
 }
 
-const TONE: Record<NonNullable<Node["tone"]>, string> = {
+const TONE: Record<NonNullable<FlowNode["tone"]>, string> = {
   default: "bg-white border-slate-200",
   stats: "bg-cyan-50/60 border-cyan-200",
   judge: "bg-amber-50 border-amber-300",
   human: "bg-emerald-50/70 border-emerald-200",
+  ai: "bg-indigo-50/70 border-indigo-200",
 };
 
-function Box({ node }: { node: Node }) {
+export function Box({ node }: { node: FlowNode }) {
   return (
     <div className={`flex-1 min-w-0 p-3 rounded-xl border-2 ${TONE[node.tone ?? "default"]}`}>
       <div className="flex flex-wrap gap-1.5">
@@ -62,7 +64,7 @@ function Box({ node }: { node: Node }) {
   );
 }
 
-function Arrow() {
+export function Arrow() {
   return (
     <div className="flex items-center justify-center text-slate-300 shrink-0 py-0.5 md:py-0 md:px-0.5" aria-hidden="true">
       <svg viewBox="0 0 24 24" className="w-5 h-5 rotate-90 md:rotate-0">
@@ -72,10 +74,9 @@ function Arrow() {
   );
 }
 
-function Lane({ title, nodes }: { title: string; nodes: Node[] }) {
+function Lane({ nodes }: { nodes: FlowNode[] }) {
   return (
-    <div className="rounded-2xl bg-slate-50/80 border border-slate-200 p-3">
-      <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-2">{title}</p>
+    <div>
       <div className="flex flex-col md:flex-row md:items-stretch">
         {nodes.map((n, i) => (
           <div key={n.label} className="contents">
@@ -88,7 +89,7 @@ function Lane({ title, nodes }: { title: string; nodes: Node[] }) {
   );
 }
 
-function DownArrow({ label }: { label: string }) {
+export function DownArrow({ label }: { label: string }) {
   return (
     <div className="flex items-center justify-center gap-2 py-1.5 text-slate-400" aria-hidden="true">
       <svg viewBox="0 0 24 24" className="w-5 h-5">
@@ -99,7 +100,7 @@ function DownArrow({ label }: { label: string }) {
   );
 }
 
-const DATA_LANE: Node[] = [
+const DATA_ROW: FlowNode[] = [
   { label: "Kaggle VAERS dataset", sub: "890,836 rows · 1 GB · Jan–Nov 2021", icons: [L("kaggle"), { lucide: FileSpreadsheet, color: "#0F766E" }] },
   { label: "Clean & merge", sub: "632,708 unique reports", icons: [L("python"), L("duckdb")] },
   {
@@ -111,36 +112,19 @@ const DATA_LANE: Node[] = [
   { label: "150 flagged signals", sub: "Ranked by χ², no AI involved", icons: [{ lucide: BarChart3, color: "#4F46E5" }] },
 ];
 
-const AI_LANE: Node[] = [
-  { label: "OpenRouter gateway", sub: "One API, many model providers", icons: [L("openrouter")] },
+const REVIEW_ROW: FlowNode[] = [
   {
-    label: "Candidate LLMs",
-    sub: "Transformer models summarize reports and extract fields, using versioned prompts",
-    icons: [L("googlegemini"), L("meta"), L("nvidia")],
+    label: "AI summary · Gemini 3.8 Flash",
+    sub: "Reads the reports behind each signal and writes a short summary, citing a report number on every sentence",
+    icons: [L("googlegemini")],
+    tone: "ai",
   },
-  {
-    label: "⚖️ Judge · Claude Sonnet 5.5",
-    sub: "Blind LLM-as-a-judge checks every claim against cited reports",
-    icons: [L("anthropic")],
-    tone: "judge",
-  },
-  {
-    label: "Golden set + scorecard",
-    sub: "20 human-verified reports · accuracy, made-up claims, speed, cost",
-    icons: [{ lucide: ClipboardCheck, color: "#B45309" }],
-  },
-];
-
-const PRODUCT_LANE: Node[] = [
   {
     label: "Human-in-the-loop",
-    sub: "Safety officer approves, edits or rejects every AI summary",
+    sub: "A drug safety officer approves, edits or rejects every AI summary",
     icons: [{ lucide: UserCheck, color: "#047857" }],
     tone: "human",
   },
-  { label: "WiseFlag site", sub: "Reads JSON snapshots · no live AI calls, no keys", icons: [L("nextdotjs"), L("tailwindcss")] },
-  { label: "Hosting", sub: "Deployed from GitHub", icons: [L("vercel")] },
-  { label: "Visitors", sub: "Usage tracked with product analytics", icons: [{ lucide: Users, color: "#475569" }, L("posthog")] },
 ];
 
 export default function ArchitectureFlow() {
@@ -153,11 +137,19 @@ export default function ArchitectureFlow() {
         </p>
       </div>
 
-      <Lane title="① Data pipeline · runs locally" nodes={DATA_LANE} />
-      <DownArrow label="reports behind each signal" />
-      <Lane title="② AI & evaluation" nodes={AI_LANE} />
-      <DownArrow label="best model's summaries" />
-      <Lane title="③ Product & people" nodes={PRODUCT_LANE} />
+      <div className="rounded-2xl bg-slate-50/80 border border-slate-200 p-3">
+        <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-2">In the product: what runs</p>
+        <Lane nodes={DATA_ROW} />
+        <DownArrow label="reports behind each signal" />
+        <Lane nodes={REVIEW_ROW} />
+      </div>
+      <p className="text-xs text-slate-500 mt-2">
+        How Gemini 3.8 Flash was chosen is covered on the{" "}
+        <Link href="/eval-results" className="font-semibold text-indigo-700 hover:underline">
+          Eval Results
+        </Link>{" "}
+        page.
+      </p>
 
       <div className="mt-3 grid grid-cols-1 md:grid-cols-2 gap-3">
         <div className="rounded-2xl border border-dashed border-slate-300 bg-white p-3">
