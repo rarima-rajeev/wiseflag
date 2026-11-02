@@ -64,38 +64,75 @@ export function Box({ node }: { node: FlowNode }) {
   );
 }
 
-export function Arrow() {
+export function Arrow({ left = false }: { left?: boolean }) {
   return (
     <div className="flex items-center justify-center text-slate-300 shrink-0 py-0.5 md:py-0 md:px-0.5" aria-hidden="true">
-      <svg viewBox="0 0 24 24" className="w-5 h-5 rotate-90 md:rotate-0">
+      <svg viewBox="0 0 24 24" className={`w-5 h-5 rotate-90 ${left ? "md:rotate-180" : "md:rotate-0"}`}>
         <path d="M4 12h14m0 0l-5-5m5 5l-5 5" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
     </div>
   );
 }
 
+// Empty desktop slots that keep a shorter row's boxes lined up under the four-box row above.
+function Slots({ count }: { count: number }) {
+  return (
+    <>
+      {Array.from({ length: count }, (_, i) => (
+        <div key={i} className="contents">
+          <div className="hidden md:block flex-1" />
+          <div className="hidden md:block w-6 shrink-0" />
+        </div>
+      ))}
+    </>
+  );
+}
+
 function Lane({ nodes }: { nodes: FlowNode[] }) {
   return (
-    <div>
-      <div className="flex flex-col md:flex-row md:items-stretch">
-        {nodes.map((n, i) => (
-          <div key={n.label} className="contents">
-            <Box node={n} />
-            {i < nodes.length - 1 && <Arrow />}
-          </div>
-        ))}
-      </div>
+    <div className="flex flex-col md:flex-row md:items-stretch">
+      {nodes.map((n, i) => (
+        <div key={n.label} className="contents">
+          <Box node={n} />
+          {i < nodes.length - 1 && <Arrow />}
+        </div>
+      ))}
     </div>
   );
 }
 
-export function DownArrow({ label }: { label: string }) {
+// Second row of a snake layout: drawn right to left on desktop, so its first node sits under the last
+// node of the row above. On phones everything stacks top to bottom in flow order.
+function ReturnLane({ nodes, columns }: { nodes: FlowNode[]; columns: number }) {
+  const rtl = [...nodes].reverse();
   return (
-    <div className="flex items-center justify-center gap-2 py-1.5 text-slate-400" aria-hidden="true">
+    <div className="flex flex-col-reverse md:flex-row md:items-stretch">
+      <Slots count={columns - nodes.length} />
+      {rtl.map((n, i) => (
+        <div key={n.label} className="contents">
+          <Box node={n} />
+          {i < rtl.length - 1 && <Arrow left />}
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export function DownArrow({ label, column }: { label: string; column?: { at: number; of: number } }) {
+  const arrow = (
+    <div className="flex items-center justify-center gap-2 py-1.5 text-slate-400 flex-1" aria-hidden="true">
       <svg viewBox="0 0 24 24" className="w-5 h-5">
         <path d="M12 4v14m0 0l-5-5m5 5l5-5" stroke="currentColor" strokeWidth="2.5" fill="none" strokeLinecap="round" strokeLinejoin="round" />
       </svg>
       <span className="text-[11px] font-medium">{label}</span>
+    </div>
+  );
+  if (!column) return arrow;
+  return (
+    <div className="flex">
+      <Slots count={column.at - 1} />
+      {arrow}
+      <Slots count={column.of - column.at} />
     </div>
   );
 }
@@ -140,8 +177,8 @@ export default function ArchitectureFlow() {
       <div className="rounded-2xl bg-slate-50/80 border border-slate-200 p-3">
         <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 mb-2">In the product: what runs</p>
         <Lane nodes={DATA_ROW} />
-        <DownArrow label="reports behind each signal" />
-        <Lane nodes={REVIEW_ROW} />
+        <DownArrow label="reports behind each signal" column={{ at: DATA_ROW.length, of: DATA_ROW.length }} />
+        <ReturnLane nodes={REVIEW_ROW} columns={DATA_ROW.length} />
       </div>
       <p className="text-xs text-slate-500 mt-2">
         How Gemini 3.8 Flash was chosen is covered on the{" "}
